@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ContactList from './ContactList';
 import SearchBar from './SearchBar';
+import AddNewContact from './AddNewContact';
 import axios from 'axios';
 
 class App extends Component {
@@ -14,7 +15,7 @@ class App extends Component {
   }
 
 componentDidMount() {
-  axios.get('https://limitless-bayou-36199.herokuapp.com/api/contacts')
+  axios.get('http://localhost:3001/api/contacts')
     .then(resp => {
       this.setState({
         searchText: this.state.searchText,
@@ -52,11 +53,24 @@ componentDidMount() {
     });
   }
 
+  handleAddNewContact(attributes) {
+    axios.post('http://localhost:3001/api/contacts', attributes)
+      .then(resp => {
+        const contact = resp.data;
+        this.setState({
+          searchText: this.state.searchText,
+          contacts: [contact, ...this.state.contacts]
+        })
+      })
+    }
+
+
   render() {
     // console.log('render');
     // debugger;
     return (
       <div className="App">
+        <AddNewContact onAdd ={this.handleAddNewContact.bind(this)} />
         <SearchBar value={this.state.searchText} onChange={this.handleSearchBarChange.bind(this)} />
         <ContactList contacts={this.getFilteredContacts()} />
       </div>

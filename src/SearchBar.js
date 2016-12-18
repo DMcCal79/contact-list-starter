@@ -6,6 +6,7 @@ const SearchBar = (props) => {
       <input
         className='search-bar'
         type="text"
+        placeholder='Search Contacts'
         value={props.value}
         onChange={ event => props.onChange(event) }
       />
