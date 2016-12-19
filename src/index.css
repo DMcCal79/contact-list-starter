@@ -35,7 +35,7 @@ body {
   display: flex;
   display: flex;
   padding: 15px 0;
-  border-bottom: 1px solid #ddd;
+  /*border-bottom: 1px solid #ddd;*/
 }
 
 .contact:first-child {
@@ -128,4 +128,13 @@ body {
 .new-contact-form input[type="submit"]:disabled {
   background: gray;
   color: white;
+}
+
+.deleteContact {
+  border-radius: 5px;
+  color: white;
+  background-color: red;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+
 }
