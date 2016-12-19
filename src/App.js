@@ -70,7 +70,7 @@ componentDidMount() {
     // debugger;
     return (
       <div className="App">
-        <AddNewContact onAdd ={this.handleAddNewContact.bind(this)} />
+        <AddNewContact onAdd={this.handleAddNewContact.bind(this)} />
         <SearchBar value={this.state.searchText} onChange={this.handleSearchBarChange.bind(this)} />
         <ContactList contacts={this.getFilteredContacts()} />
       </div>

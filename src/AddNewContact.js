@@ -78,16 +78,12 @@ render() {
         />
 
     </form>
-
-
-
-  )
+   )
+ }
 }
 
-
-
-
-
+AddNewContact.propTypes = {
+  onAdd: React.PropTypes.func.isRequired
 }
 
 export default AddNewContact;
